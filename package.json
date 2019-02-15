@@ -1,0 +1,54 @@
+{
+  "name": "gatsby-starter-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Joaquín Lobo Rodríguez <jloborod@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "build": "gatsby build",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "develop": "gatsby develop",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
+    "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
+    "format": "prettier --write '{gatsby-*.js,src/**/*.{js,jsx,json,css}}'"
+  },
+  "dependencies": {
+    "gatsby": "^2.1.0",
+    "gatsby-image": "^2.0.29",
+    "gatsby-plugin-manifest": "^2.0.17",
+    "gatsby-plugin-offline": "^2.0.23",
+    "gatsby-plugin-react-helmet": "^3.0.6",
+    "gatsby-plugin-sharp": "^2.0.20",
+    "gatsby-source-filesystem": "^2.0.20",
+    "gatsby-transformer-sharp": "^2.1.13",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "react-helmet": "^5.2.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.13.0",
+    "eslint-plugin-react": "^7.12.4",
+    "gh-pages": "^2.0.1",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.4",
+    "prettier": "^1.16.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "{gatsby-*.js,src/**/*.{js,jsx,json,css}}": [
+      "yarn format",
+      "git add"
+    ]
+  }
+}
